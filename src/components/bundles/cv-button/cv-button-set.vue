@@ -1,14 +1,20 @@
 <template>
-  <div class="cv-button-set" :class="[`${carbonPrefix}--btn-set`, { [`${carbonPrefix}--btn-set--stacked`]: stacked }]">
+  <div
+    class="cv-button-set"
+    :class="[
+      `${carbonPrefix}--btn-set`,
+      { [`${carbonPrefix}--btn-set--stacked`]: stacked },
+    ]"
+  >
     <slot />
   </div>
 </template>
 
 <script>
-import { carbonPrefixMixin } from '../../mixins';
+import { carbonPrefixMixin } from "../../mixins";
 
 export default {
-  name: 'CvButtonSet',
+  name: "CvButtonSet",
   mixins: [carbonPrefixMixin],
   props: {
     stacked: Boolean,

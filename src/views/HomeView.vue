@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import {} from "@/components/bundles/cv-button";
 // @ is an alias to /src
 export default {};
 </script>

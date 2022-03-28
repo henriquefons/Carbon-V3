@@ -1,4 +1,4 @@
-import { settings as carbonSettings } from 'carbon-components';
+import { settings as carbonSettings } from "carbon-components";
 
 export default {
   props: {
@@ -6,7 +6,7 @@ export default {
       type: [String, Object],
       default: undefined,
       validator(val) {
-        if (!val || typeof val === 'string') {
+        if (!val || typeof val === "string") {
           return true;
         }
         return val.render !== null;
@@ -16,24 +16,35 @@ export default {
       type: String,
       default: undefined,
       validator(val) {
-        if (val !== undefined && process.env.NODE_ENV === 'development') {
-          console.warn('CvButton: iconHref deprecated in favour of icon to be removed in future versions.');
+        if (val !== undefined && process.env.NODE_ENV === "development") {
+          console.warn(
+            "CvButton: iconHref deprecated in favour of icon to be removed in future versions."
+          );
         }
         return true;
       },
     },
     kind: {
       type: String,
-      default: 'primary',
-      validator: val =>
-        ['', 'primary', 'secondary', 'tertiary', 'ghost', 'danger', 'danger--ghost', 'danger--tertiary'].includes(val),
+      default: "primary",
+      validator: (val) =>
+        [
+          "",
+          "primary",
+          "secondary",
+          "tertiary",
+          "ghost",
+          "danger",
+          "danger--ghost",
+          "danger--tertiary",
+        ].includes(val),
     },
     small: {
       type: Boolean,
       default: undefined,
       validator(val) {
-        if (val !== undefined && process.env.NODE_ENV === 'development') {
-          console.warn('CvButton: small deprecated in favour of size.');
+        if (val !== undefined && process.env.NODE_ENV === "development") {
+          console.warn("CvButton: small deprecated in favour of size.");
         }
         return true;
       },
@@ -41,7 +52,8 @@ export default {
     size: {
       type: String,
       default: undefined,
-      validator: val => ['', 'default', 'field', 'small', 'sm', 'lg', 'xl'].includes(val),
+      validator: (val) =>
+        ["", "default", "field", "small", "sm", "lg", "xl"].includes(val),
     },
   },
   computed: {
@@ -50,7 +62,7 @@ export default {
     // https://vuejs.org/v2/guide/components-custom-events.html#Customizing-Component-v-model
     inputListeners() {
       return Object.assign({}, this.$listeners, {
-        click: event => this.$emit('click', event),
+        click: (event) => this.$emit("click", event),
       });
     },
     buttonClassOpts() {
@@ -64,7 +76,7 @@ export default {
 
         if (opts.iconOnly) {
           classes.push(`${carbonSettings.prefix}--btn--icon-only`);
-          if (this.selected && lowerCaseKind === 'ghost') {
+          if (this.selected && lowerCaseKind === "ghost") {
             classes.push(`${carbonSettings.prefix}--btn--selected`);
           }
         }
@@ -73,11 +85,11 @@ export default {
           classes.push(`${carbonSettings.prefix}--btn--${lowerCaseKind}`);
         }
 
-        let size = this.size ? this.size : this.small && 'sm';
-        if (size === 'small') {
-          size = 'sm';
+        let size = this.size ? this.size : this.small && "sm";
+        if (size === "small") {
+          size = "sm";
         }
-        if (size && !(size === '' || size === 'default')) {
+        if (size && !(size === "" || size === "default")) {
           classes.push(`${carbonSettings.prefix}--btn--${size}`);
         }
 

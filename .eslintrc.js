@@ -8,6 +8,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:prettier/recommended",
   ],
+
   parserOptions: {
     parser: "@babel/eslint-parser",
   },

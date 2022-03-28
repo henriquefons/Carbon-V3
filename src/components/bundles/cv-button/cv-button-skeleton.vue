@@ -1,12 +1,16 @@
 <template>
-  <button disabled :class="buttonClassOpts({ skeleton: true })" type="button"></button>
+  <button
+    disabled
+    :class="buttonClassOpts({ skeleton: true })"
+    type="button"
+  ></button>
 </template>
 
 <script>
-import buttonMixin from './button-mixin';
+import buttonMixin from "./button-mixin";
 
 export default {
-  name: 'CvButtonSkeleton',
+  name: "CvButtonSkeleton",
   mixins: [buttonMixin],
 };
 </script>

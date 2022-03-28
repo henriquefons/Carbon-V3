@@ -14,18 +14,22 @@
   >
     <span :class="`${carbonPrefix}--assistive-text`">{{ label }}</span>
     <slot name="icon">
-      <CvSvg v-if="icon || iconHref" :svg="icon || iconHref" :class="`${carbonPrefix}--btn__icon`" />
+      <CvSvg
+        v-if="icon || iconHref"
+        :svg="icon || iconHref"
+        :class="`${carbonPrefix}--btn__icon`"
+      />
     </slot>
   </button>
 </template>
 
 <script>
-import buttonMixin from './button-mixin';
-import { carbonPrefixMixin } from '../../mixins';
-import CvSvg from '../cv-svg/_cv-svg';
+import buttonMixin from "./button-mixin";
+import { carbonPrefixMixin } from "../../mixins";
+import CvSvg from "../../cv-svg/_cv-svg.vue";
 
 export default {
-  name: 'CvIconButton',
+  name: "CvIconButton",
   mixins: [buttonMixin, carbonPrefixMixin],
   components: { CvSvg },
   props: {
@@ -33,10 +37,14 @@ export default {
     selected: Boolean,
     tipPosition: {
       type: String,
-      default: 'bottom',
-      validator: val => ['top', 'left', 'bottom', 'right'.includes(val)],
+      default: "bottom",
+      validator: (val) => ["top", "left", "bottom", "right".includes(val)],
     },
-    tipAlignment: { type: String, default: 'center', validator: val => ['start', 'center', 'end'].includes(val) },
+    tipAlignment: {
+      type: String,
+      default: "center",
+      validator: (val) => ["start", "center", "end"].includes(val),
+    },
   },
 };
 </script>
